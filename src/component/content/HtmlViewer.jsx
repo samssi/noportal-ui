@@ -1,8 +1,8 @@
 import React from "react";
 import { contentViewerStream } from "../../streaming/streamStore"
-import jsonTransformer from "../../transforming/jsonTransformer"
+import htmlTranformer from "../../transforming/htmlTransformer";
 
-class JsonViewer extends React.Component {
+class HtmlViewer extends React.Component {
     constructor() {
         super();
         this.state = {
@@ -12,17 +12,21 @@ class JsonViewer extends React.Component {
 
     componentDidMount() {
         contentViewerStream.subscribe((value) => { 
-            setTimeout(() => this.setState({contentData: value}), 300); 
+            setTimeout(() => this.setState({contentData: value }), 300); 
         } );
+    }
+
+    renderParagraph() {
+        const paragraphs = this.state.contentData.paragraph;
+        return paragraphs;
     }
 
     render() {
         return(
             <div>
-                <p>JsonContent: </p>
-                <p>{JSON.stringify(this.state.contentData)}</p>
+                {this.renderParagraph()}
             </div>);
     }
 }
 
-export default JsonViewer;
+export default HtmlViewer;

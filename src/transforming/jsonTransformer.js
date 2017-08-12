@@ -1,10 +1,9 @@
 "use strict";
 
 function transform(component, contentData) {
-    
-    return JSON.stringify({
+    return {
         [component]: contentData
-    });
+    };
 }
 
 module.exports = { transform };

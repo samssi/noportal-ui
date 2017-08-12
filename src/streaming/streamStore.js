@@ -2,10 +2,4 @@
 
 import Rx from "rxjs";
 
-const subject = new Rx.Subject();
-
-function subjectStream() {
-    return subject;
-}
-
-module.exports = { subjectStream };
+export const contentViewerStream = new Rx.Subject();

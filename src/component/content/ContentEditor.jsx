@@ -1,15 +1,11 @@
 import React from "react";
-import streamStore from "../../streaming/streamStore"
+import ParagraphEditor from "../content/ParagraphEditor"
 
 class Input extends React.Component {
-    handleEvent(event) {
-        streamStore.subjectStream().next(event.target.value);
-    }
-
     render() {
         return(
             <div>
-               <textarea name="contentArea" id="contentArea" cols="30" rows="10" onChange={this.handleEvent.bind(this)} />
+               <ParagraphEditor />
             </div>);
     }
 }
