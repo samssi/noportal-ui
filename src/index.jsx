@@ -1,9 +1,15 @@
 import React from "react";
-import ReactDOM from "react-dom";
+import { render } from 'react-dom'
 import Application from "./Application";
+import { Provider } from 'react-redux'
+import { createStore } from "redux";
+import { noPortalApp } from "./reducers";
 
-ReactDOM.render((
-    <div>
+let store = createStore(noPortalApp);
+
+render((
+    <Provider store={store}>
         <Application />
-    </div>), document.getElementById("root")
+    </Provider>),
+    document.getElementById("root")
 );
